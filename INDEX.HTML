@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Simran</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Courier New', monospace;
+text-align:center;
+color: rgb(182, 31, 5);
+overflow:hidden;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background-size:cover;
+background-position:center;
+transition:opacity 1s;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff4da6;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+#typing{
+font-size:50px;
+letter-spacing:5px;
+}
+
+.balloon{
+position:absolute;
+bottom:-150px;
+width:60px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-120vh);}
+}
+
+.polaroid{
+background:white;
+padding:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.5);
+transform:rotate(-5deg);
+}
+
+.polaroid img{
+width:300px;
+}
+
+.polaroid p{
+color:black;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+
+<div class="page" id="page1" style="background-image:url(bg1.jpg);">
+<h1 id="typing"></h1>
+<button onclick="nextPage(2)">NEXT</button>
+</div>
+
+
+<!-- PAGE 2 -->
+
+<div class="page hidden" id="page2" style="background-image:url(bg2.jpg);">
+
+<h1>HAPPY BIRTHDAY TO SIMRAAAANNNNNNNNN</h1>
+
+<img src="balloon.png" class="balloon" style="left:10%;">
+<img src="balloon.png" class="balloon" style="left:30%;">
+<img src="balloon.png" class="balloon" style="left:60%;">
+<img src="balloon.png" class="balloon" style="left:80%;">
+
+<button onclick="nextPage(3)">NEXT</button>
+
+</div>
+
+
+<!-- PAGE 3 LETTER -->
+
+<div class="page hidden" id="page3" style="background-image:url(bg3.jpg);">
+
+<div style="background:rgba(0,0,0,0.6); padding:30px; border-radius:15px; width:60%;">
+
+<p style="font-size:20px">
+
+HAPPY BIRTHDAY SIMRAN ❤️  
+HOPE TUSSI HAPPY HAPPY HONGE  
+
+MAI THODA SA CHAMAN HOO  
+
+HUMARI BAAT KAFFI KAM HO GYI  
+
+BUT STILL CHAMAN IS CHAMAN  
+
+TUSSI DHYAN MAT DO  
+
+BASS ASSI TOH IDHAR HI H  
+
+MSG KRKE DEKH LIA KAR  
+
+A VERY HAPPY BIRTHDAY TO  
+
+SIMRANNNNNNNNNNNN 🎉
+
+</p>
+
+</div>
+
+<button onclick="nextPage(4)">NEXT</button>
+
+</div>
+
+
+<!-- PAGE 4 POLAROID -->
+
+<div class="page hidden" id="page4" style="background-image:url(bg4.jpg);">
+
+<div class="polaroid">
+<img src="photo1.jpg">
+<p>Pretty Princess ❤️</p>
+</div>
+
+</div>
+
+
+
+<script>
+
+function nextPage(num){
+
+document.querySelectorAll(".page").forEach(p=>{
+p.classList.add("hidden")
+})
+
+document.getElementById("page"+num).classList.remove("hidden")
+
+}
+
+const text="HAPPY BIRTHDAYYYYYYYYY 🎉";
+
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,100);
+}
+}
+
+type()
+
+</script>
+
+</body>
+</html>
